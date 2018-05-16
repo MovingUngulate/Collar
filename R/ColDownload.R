@@ -164,6 +164,14 @@ ColDownload<-function(username="",password="",dirdown="",cType='ATS/IRID'){
 
 
     de<-d2[,c(1,2,12:15)]
+    
+    options(warn=-1)
+    de$Event1<-ifelse(is.na(as.numeric(de$Event1)),de$Event1,'')
+    de$Event2<-ifelse(is.na(as.numeric(de$Event2)),de$Event2,'')
+    de$Event3<-ifelse(is.na(as.numeric(de$Event3)),de$Event3,'')
+    de$Event4<-ifelse(is.na(as.numeric(de$Event4)),de$Event4,'')
+    
+    options(warn=0)
 
     de$All<-paste(de$Event1,de$Event2,de$Event3,de$Event4,sep=':')
 
