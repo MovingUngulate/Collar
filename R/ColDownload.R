@@ -134,13 +134,31 @@ ColDownload<-function(username="",password="",dirdown="",cType='ATS/IRID'){
     d1P<-paste(dirdown,'TransMissDown.txt',sep='')
     gf<-rvest::submit_form(jp,f2[[1]],'ctl00$ContentPlaceHolder1$DownloadAll4',httr::write_disk(d1P,overwrite=T))
 
+    
+    con <- file(d1P,"r")
+    first_line <- readLines(con,n=1)
+    close(con)
+
+    spl<-unlist(strsplit(first_line,split=','))
+
+    if(TRUE %in% grepl('Latitude',spl)){
     d2<-read.table(d1P,stringsAsFactors = F,sep=',',fill=T,
                    col.names=paste('column',1:18,sep='_'))
-    
+
     d2<-d2[-1,c(1:15)]
+
+    }else{
+      d2<-read.table(d1P,stringsAsFactors = F,sep=',',fill=T,
+                     col.names=paste('column',1:16,sep='_'))
+      
+      d2<-d2[-1,-16]
+    }
+
+
+
+
     names(d2)<-c('Serial','TelemDate','NumFixes','BattVoltage','Mortality','BreakOff','GPSOnTime','SatOnTime',
                  'SatErrors','GMTOffset','LowBatt','Event1','Event2','Event3','Event4')
-
 
     dd<-d2[,1:11]
 
@@ -430,7 +448,7 @@ ColDownload<-function(username="",password="",dirdown="",cType='ATS/IRID'){
     #download data
     gf<-rvest::submit_form(jp,f2[[1]],'ctl00$ContentPlaceHolder1$DownloadAll3',httr::write_disk(d1P,overwrite=T))
     #read in data
-    d1<-rvest::read.table(d1P,stringsAsFactors = F,sep=',',header=T)
+    d1<-read.table(d1P,stringsAsFactors = F,sep=',',header=T)
 
     #data munging
     d1$CollarSerialNumber<-as.character(d1$CollarSerialNumber)
