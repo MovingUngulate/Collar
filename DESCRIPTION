@@ -1,0 +1,30 @@
+Package: Collar
+Type: Package
+Title: Ungulate Collar Download and Manipulation
+Version: 0.4
+Author: Matthew M. Hayes
+Maintainer: Matthew M. Hayes <mhayes1@uwyo.edu>
+Description: This package collates many tools built to download and manipulate ungulate collar datasets into consistent and manageable formats. Some of these tools are included in my other packages and will be scrubbed at some point in the future. If you are using any of the collar downloading tools, you should use the ones from this package to ensure future useability.
+BugReports: https://github.com/MovingUngulate/Collar
+License: GPL-3
+LazyData: TRUE
+Imports:
+    rvest, 
+    rgeos,
+    RCurl, 
+    sp,
+    httr,
+    xml2, 
+    move, 
+    snow, 
+    parallel, 
+    adehabitatLT,
+    data.table,
+    dplyr,
+    zoo,
+    rmarkdown,
+    knitr,
+    jpeg,
+    tinytex,
+    randomForest
+RoxygenNote: 6.0.1
