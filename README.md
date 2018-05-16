@@ -1,4 +1,4 @@
-# Collar <img src="man/figures/PartLog.jpg" align="right" height="200" width="112" />
+# Collar
 
 ## Overview
 
