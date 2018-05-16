@@ -1,7 +1,7 @@
 Package: Collar
 Type: Package
 Title: Ungulate Collar Download and Manipulation
-Version: 0.4
+Version: 0.1.1
 Author: Matthew M. Hayes
 Maintainer: Matthew M. Hayes <mhayes1@uwyo.edu>
 Description: This package collates many tools built to download and manipulate ungulate collar datasets into consistent and manageable formats. Some of these tools are included in my other packages and will be scrubbed at some point in the future. If you are using any of the collar downloading tools, you should use the ones from this package to ensure future useability.
