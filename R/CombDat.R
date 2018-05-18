@@ -53,7 +53,7 @@ CombDat<-function(vecpath,ATSUsers,ATSPass,tempdir,ST=TRUE,STUser=NULL,STPass=NU
 
 }
   for(i in 1:length(ATSUsers)){
-    de<-Part::ColDownload(username=ATSUsers[i],password=ATSPass[i],dirdown=tempdir,cType='ATS/IRID')
+    de<-Collar::ColDownload(username=ATSUsers[i],password=ATSPass[i],dirdown=tempdir,cType='ATS/IRID')
     #de[[1]]@data$Study<-ATSList[i]
     
     if(i == 1){
@@ -79,7 +79,7 @@ CombDat<-function(vecpath,ATSUsers,ATSPass,tempdir,ST=TRUE,STUser=NULL,STPass=NU
   }
 
   if(ST == TRUE){
-  st<-SirTrackDat(user=STUser,pass=STPass,
+  st<-Collar::SirTrackDat(user=STUser,pass=STPass,
                         saveas=paste0(tempdir,'STDat.csv'),yourlink=yourlink)
 
   
